@@ -102,7 +102,7 @@ async def to_code(config):
     # the VFS is built with directory support; otherwise the linker reports
     # e.g. "readdir is not implemented and will always fail" and the SD
     # directory operations silently fail at runtime. Force the options on.
-    if CORE.using_esp_idf:
+    if CORE.is_esp32:
         # Re-enable the built-in "fatfs" IDF component (excluded by default since
         # ESPHome 2026.2.0); esp_vfs_fat_sdmmc_mount() won't link without it.
         if include_builtin_idf_component is not None:
